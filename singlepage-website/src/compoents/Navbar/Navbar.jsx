@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import { Button } from "../../GlobalStyles";
 import {
   Nav,
   NavbarContainer,
-  NavLogo,
-  NavIcon,
+
+
   MobileIcon,
   NavMenu,
   NavItem,
   NavLinks,
   NavItemBtn,
-  NavBtnLink,
+
+  CartButton,
+  CartIcon
 } from "./Navbar.elements";
 
 const Navbar = () => {
@@ -36,24 +37,32 @@ const Navbar = () => {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav>
           <NavbarContainer>
-            <NavLogo to="/">
-              <NavIcon />
-              ULTRA
-            </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <NavLinks to="/">Home</NavLinks>
+                <NavLinks to="/trang-chu">Sản phẩm</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/services">Services</NavLinks>
+                <NavLinks to="/">Thông số kỹ thuật</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/products">Products</NavLinks>
+                <NavLinks to="/">Chi tiết sản phẩm</NavLinks>
               </NavItem>
-              <NavItemBtn>
+              <NavItem>
+                <NavLinks to="/">Liên hệ</NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/">Đối tác</NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/">Dịch vụ quản lý lưu trú ASM</NavLinks>
+              </NavItem>
+              <CartButton>
+                <CartIcon></CartIcon>
+              </CartButton>
+              {/* <NavItemBtn>
                 {button ? (
                   <NavBtnLink to="/sign-up">
                     <Button primary>SIGN UP</Button>
@@ -65,7 +74,7 @@ const Navbar = () => {
                     </Button>
                   </NavBtnLink>
                 )}
-              </NavItemBtn>
+              </NavItemBtn> */}
             </NavMenu>
           </NavbarContainer>
         </Nav>

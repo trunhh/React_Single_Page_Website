@@ -4,14 +4,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  BrowserRouter,
 } from "react-router-dom";
 import Navbar from "./compoents/Navbar/Navbar";
 import Home from "./Pages/HomePage/Home";
-import Services from "./Pages/Services/Services";
-import Products from "./Pages/Products/Products";
 import Footer from "./compoents/Footer/Footer";
 import ScrollToTop from "./compoents/ScrollToTop";
+import Header from "./compoents/Header/Header";
+import CheckOut from "./Pages/CheckOut/CheckOut";
 
 function App() {
   return (
@@ -19,10 +18,10 @@ function App() {
       <GlobalStyle />
       <ScrollToTop />
       <Navbar />
+      <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/services" component={Services} />
-        <Route path="/products" component={Products} />
+        <Route path="/check-out" component={CheckOut} />
 
       </Switch>
       <Footer />

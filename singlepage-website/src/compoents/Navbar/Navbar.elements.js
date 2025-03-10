@@ -1,40 +1,28 @@
 import styled from "styled-components"
 import { Conatainer } from "../../GlobalStyles";
-import {FaMagento} from "react-icons/fa"
-import {Link} from "react-router-dom"
+import {FaMagento, FaShoppingCart} from "react-icons/fa"
+import { NavLink } from "react-router-dom";
 
 export const Nav = styled.nav`
   background: #101522;
-  height: 80px;
+  background-image: linear-gradient(#ff606f, #ffbf71);
+  height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
   position: sticky;
   top: 0;
   z-index: 999;
 `;
 
-export const NavbarContainer = styled(Conatainer)`
+export const NavbarContainer = styled.div`
     display: flex;
-    justify-content: space-between;
-    height: 80px;
-
-    ${Conatainer}
-`
-
-export const NavLogo = styled(Link)`
-    color: #fff;
-    justify-self: flex-start;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    display: flex;
+    justify-content: center;
     align-items: center;
+    height: 64px;
+
 `
-export const NavIcon = styled(FaMagento)`
-    margin-right: 0.5rem;
-`
+
 export const MobileIcon = styled.div`
     display: none;
 
@@ -61,23 +49,24 @@ export const NavMenu = styled.ul`
       display: flex;
       flex-direction: column;
       width: 100%;
-      height:90vh;
+      height: 90vh;
       position: absolute;
-      top:80px;
-      left:${({click}) =>(click ? 0 : '-100%')};
-      opacity:1;
+      top: 80px;
+      left: ${({ click }) => (click ? "0" : "-100%")}; /* Toggle visibility */
+      opacity: ${({ click }) => (click ? "1" : "0")};  /* Ensure smooth transition */
       transition: all 0.5s ease-in-out;
       background: #101522;
-
   }
 `;
 
+
+
+
 export const NavItem = styled.li`
-  height: 80px;
   border-bottom: 2px solid transparent;
 
   &:hover {
-    border-bottom: 2px solid #4b59f7;
+    background: white;
   }
 
   @media screen and (max-width:960px){
@@ -89,13 +78,21 @@ export const NavItem = styled.li`
   }
 `;
 
-export const NavLinks = styled(Link)`
+export const NavLinks = styled(NavLink)`
   color: #fff;
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  font-size: 12px;
+  font-weight: bold;
   height: 100%;
+  text-transform: uppercase;
+
+  &:hover {
+    color: #fe7b21;
+  }
+
 
   @media screen and (max-width: 960px) {
     text-align: center;
@@ -116,19 +113,33 @@ export const NavItemBtn = styled.li`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 120px;
+    height: 100%;
   }
 `;
 
-export const NavBtnLink = styled(Link)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 8px 16px;
-    height: 100%;
-    width: 100%;
-    border:none;
-    outline: none;
 
-`
+export const CartButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  
+  &:hover {
+    background-color: black;
+  }
+
+  /* &:active {
+    background-color: #e0e0e0;
+  } */
+`;
+
+export const CartIcon = styled(FaShoppingCart)`
+  color: white;
+  font-size: 32px;
+`;
