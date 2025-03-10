@@ -63,9 +63,9 @@ export const ShopItemPrice = styled.div`
     height: 52px;
     font-weight: bold;
     font-size: small;
-    padding: 8px;
     align-items: center;
     text-align: center;
+    vertical-align: middle;
     box-shadow: 0px 16px 16px -8px rgba(0, 0, 0, 0.3);
     margin-bottom: 8px;
     margin-top: -16px;
@@ -116,6 +116,7 @@ export const AddToCartButton = styled.button`
   margin-bottom: 8px;
   transition: transform 0.3s ease-in-out;
   font-weight: bold;
+  font-size: small;
   color: white;
   text-transform: uppercase;
   padding: 8px 24px 8px 24px;

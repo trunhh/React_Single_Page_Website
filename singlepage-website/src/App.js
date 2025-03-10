@@ -1,8 +1,8 @@
-import react from "react"
+import React from "react";
 import GlobalStyle from "./GlobalStyles"
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 import Navbar from "./compoents/Navbar/Navbar";
@@ -19,11 +19,11 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/check-out" component={CheckOut} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/check-out" element={<CheckOut/>} />
 
-      </Switch>
+      </Routes>
       <Footer />
     </Router>
   );

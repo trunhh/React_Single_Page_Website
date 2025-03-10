@@ -15,12 +15,15 @@ import {
 
 } from "./ShopItem.element";
 
+import { formatVND } from '../../Utillities/CurrencyFormater';
+import { useNavigate } from "react-router-dom";
 const ShopItem = ({
   name,
   desc,
   img,
   price
 }) => {
+  const navigate = useNavigate();
   return (
     <ShopItemButton>
       <ShopItemContainer>
@@ -32,17 +35,15 @@ const ShopItem = ({
           </div>
           
           <ShopDescription>{desc}</ShopDescription>
-          <AddToCartButton>
+          <AddToCartButton onClick={() => navigate("/check-out")}>
             <AddToCartIcon/>
             thêm vào giỏ hàng
-
-            
           </AddToCartButton>
 
         </ShopItemContainer1>
         <ShopItemContainer2>
           <ShopItemImage src={img} />
-          <ShopItemPrice>{price}<br/>(Chưa VAT)</ShopItemPrice>
+          <ShopItemPrice>{formatVND(price)}<br/>(Chưa VAT)</ShopItemPrice>
 
         </ShopItemContainer2>
       </ShopItemContainer>

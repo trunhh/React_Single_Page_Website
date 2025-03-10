@@ -3,6 +3,7 @@ import { FaMapMarker, FaShoppingCart } from "react-icons/fa";
 import BuyerInfo from "../../compoents/BuyerInfo/BuyerInfo";
 import Cart from "../../compoents/Cart/Cart";
 import PrinterImg from "../../assets/images/printer-img.png";
+import { useAlert } from "../../compoents/Alert/Alert";
 import {
   Section,
   SectionTitle,
@@ -49,6 +50,7 @@ const SummaryRow = ({
 }
 
 const CheckOut = () => {
+  const showAlert = useAlert();
   const [cartItems, setCartItems] = useState([
     { ...sampleProd, quantity: 1 }, // Sample product with quantity
   ]);
@@ -66,15 +68,19 @@ const CheckOut = () => {
     invoiceRequired: false,
   });
 
+  const [loading, setLoading] = useState(false);
+
   const buyerInfoRef = useRef(null); // Ref to store form submit function
 
   const handleCheckout = async (event) => {
     event.preventDefault();
 
     if (buyerInfoRef.current && !buyerInfoRef.current.validate()) {
-      alert("Vui lòng điền đầy đủ thông tin trước khi thanh toán!");
+      showAlert("Vui lòng điền đầy đủ thông tin trước khi thanh toán!","danger");
       return;
     }
+
+    setLoading(true);
 
     const orderData = {
         name: formData.fullName,
@@ -102,11 +108,11 @@ const CheckOut = () => {
             },
         });
 
-        console.log("Order created successfully:", response.data);
-        alert("Đơn hàng của bạn đã được tạo thành công!");
+        showAlert("Đơn hàng của bạn đã được tạo thành công!","success");
     } catch (error) {
-        console.error("Order creation failed:", error.response?.data || error.message);
-        alert("Có lỗi xảy ra khi tạo đơn hàng. Vui lòng thử lại!");
+        showAlert("Có lỗi xảy ra khi tạo đơn hàng. Vui lòng thử lại!", "danger");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -118,6 +124,17 @@ const CheckOut = () => {
 
   return (
     <>
+      {loading && (
+        <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark bg-opacity-75" style={{ zIndex: 1050 }}>
+          <div className="text-center">
+            <div className="spinner-border text-light" role="status" style={{ width: "4rem", height: "4rem" }}>
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p className="text-light mt-3">Đang xử lý đơn hàng...</p>
+          </div>
+        </div>
+      )}
+
       <CheckOutHeader>
         <img src={PrinterImg}/>
         <CheckOutTitle>Thanh toán</CheckOutTitle>

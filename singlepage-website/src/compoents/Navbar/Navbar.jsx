@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
+import { useNavigate } from "react-router-dom";
 import {
   Nav,
   NavbarContainer,
@@ -27,6 +28,7 @@ const Navbar = () => {
       setButton(true);
     }
   };
+  const navigate = useNavigate();
 
   useEffect(() => {
     showButton();
@@ -42,7 +44,7 @@ const Navbar = () => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <NavLinks to="/trang-chu">Sản phẩm</NavLinks>
+                <NavLinks to="/">Sản phẩm</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks to="/">Thông số kỹ thuật</NavLinks>
@@ -59,8 +61,8 @@ const Navbar = () => {
               <NavItem>
                 <NavLinks to="/">Dịch vụ quản lý lưu trú ASM</NavLinks>
               </NavItem>
-              <CartButton>
-                <CartIcon></CartIcon>
+              <CartButton onClick={() => navigate("/check-out")}>
+                <CartIcon/>
               </CartButton>
               {/* <NavItemBtn>
                 {button ? (

@@ -55,7 +55,7 @@ const Cart = ({
   };
 
   return (
-    <CartTable className="table table-striped">
+    <CartTable>
       <thead>
         <tr>
             <th>Sản phẩm</th>
