@@ -27,3 +27,5 @@ Các nghiệp vụ có thể nâng cấp trong tương lai: Ký Hợp đồng đ
     certification: "PCI PTS 6.x, EMV L1/L2, EMV Contactless L1, Visa PayWave, MasterCard PayPass, American ExpressPay, MCCS, TQM, CE, FCC, RoHS"
   
   };
+
+  export const SampleProducts = [sampleProd]

@@ -1,0 +1,43 @@
+:root {
+    --primary: #ff5a73;
+    --secondary: #ff9831;
+    --primary-light: #ff6d18;
+    --secondary-light: #ffd553;
+    --neutral: #ffe1cf;
+}
+
+.bg-gradient-top {
+    background-image: linear-gradient(var(--primary), var(--secondary));
+}
+
+.bg-gradient-bottom {
+    background-image: linear-gradient(var(--secondary), var(--primary));
+}
+
+.bg-gradient-left {
+    background-image: linear-gradient(to left, var(--primary), var(--secondary));
+}
+
+.bg-gradient-right {
+    background-image: linear-gradient(to left, var(--secondary), var(--primary));
+}
+
+.bg-plain-primary {
+    background-color: var(--primary);
+}
+
+.bg-plain-secondary {
+    background-color: var(--secondary);
+}
+
+.bg-plain-primary-light {
+    background-color: var(--primary-light);
+}
+
+.bg-plain-neutral {
+    background-color: var(--neutral);
+}
+
+.txt-primary {
+    color: var(--primary);
+}

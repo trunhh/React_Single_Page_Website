@@ -5,13 +5,7 @@ import Cart from "../../compoents/Cart/Cart";
 import PrinterImg from "../../assets/images/printer-img.png";
 import { useAlert } from "../../compoents/Alert/Alert";
 import {
-  Section,
-  SectionTitle,
-  CheckOutHeader,
   CheckOutTitle,
-  CheckOutSummary,
-  SummaryTable,
-  SummaryCell,
   PriceCell,
   CheckOutButton
 
@@ -19,6 +13,8 @@ import {
 import { formatVND } from '../../Utillities/CurrencyFormater';
 import { sampleProd } from '../../compoents/Samples';
 import axios from "axios";
+import { Table } from "react-bootstrap";
+import '../../styling/coloring.css';
 
 const CheckOutSection = ({
   icon,
@@ -27,11 +23,11 @@ const CheckOutSection = ({
 }) => {
   return (
     <>
-      <SectionTitle>
+      <h5 className="d-flex align-items-center border-bottom border-dark fw-bold text-uppercase px-sm-5 py-3 gap-1">
         {icon}
         {label}
-        </SectionTitle>
-      <Section>{children}</Section>
+        </h5>
+      <div className="d-flex justify-content-center mt-4">{children}</div>
     </>
   )
 }
@@ -43,7 +39,7 @@ const SummaryRow = ({
 }) => {
   return (
     <tr>
-      <SummaryCell>{label}</SummaryCell>
+      <td className="bg-transparent">{label}</td>
       <PriceCell highlight={highlight}>{formatVND(value)}</PriceCell>
     </tr>
   )
@@ -135,10 +131,10 @@ const CheckOut = () => {
         </div>
       )}
 
-      <CheckOutHeader>
-        <img src={PrinterImg}/>
+      <div className="d-flex bg-plain-neutral p-1">
+        <img src={PrinterImg} style={{height: "128px"}}/>
         <CheckOutTitle>Thanh toán</CheckOutTitle>
-      </CheckOutHeader>
+      </div>
       <CheckOutSection label="Địa chỉ nhận hàng" icon={<FaMapMarker color="#ff6d18"/>}>
         <BuyerInfo formData={formData} setFormData={setFormData} ref={buyerInfoRef}/>
       </CheckOutSection>
@@ -147,8 +143,8 @@ const CheckOut = () => {
         <Cart cartItems={cartItems} setCartItems={setCartItems}/>
       </CheckOutSection>
 
-      <CheckOutSummary>
-      <SummaryTable className="table table-borderless">
+      <div className="bg-plain-neutral px-4 py-3">
+      <Table className="table-borderless w-25 ms-auto bg-transparent">
           <tbody>
             <SummaryRow label="Tổng số tiền hàng" value={subtotal}/>
             <SummaryRow label="VAT" value={vat}/>
@@ -157,11 +153,16 @@ const CheckOut = () => {
           <tfoot className="border-top border-dark">
             <SummaryRow label="Tổng thanh toán" value={totalAmount} highlight={true}/>
           </tfoot>
-        </SummaryTable>
+        </Table>
 
-      </CheckOutSummary>
+      </div>
 
-      <CheckOutButton onClick={handleCheckout}>Đặt hàng</CheckOutButton>
+      <CheckOutButton 
+        className="d-flex text-white fw-bold rounded-pill border-0 bg-plain-primary-light fs-5 mt-3 mb-5 ms-auto me-4 px-5 py-2 " 
+        onClick={handleCheckout}
+      >
+        Đặt hàng
+      </CheckOutButton>
       
       
     </>

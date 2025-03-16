@@ -5,7 +5,6 @@ import { formatVND } from '../../Utillities/CurrencyFormater';
 
 import {
   ProductImage,
-  CartTable,
   CartCell
 
 
@@ -24,7 +23,7 @@ const CartItem = ({ img, name, price, quantity, onQuantityChange}) => {
   return (
     <tr>
     <CartCell>
-        <ProductImage src={img} alt={name} />
+        <ProductImage className="d-none d-sm-inline-block" src={img} alt={name} />
         <span>{name}</span>
     </CartCell>
     <CartCell>{formatVND(price)}</CartCell>
@@ -55,7 +54,7 @@ const Cart = ({
   };
 
   return (
-    <CartTable>
+    <Table className="mx-4">
       <thead>
         <tr>
             <th>Sản phẩm</th>
@@ -75,7 +74,7 @@ const Cart = ({
           />
         ))}
       </tbody>
-    </CartTable>
+    </Table>
     
     
     

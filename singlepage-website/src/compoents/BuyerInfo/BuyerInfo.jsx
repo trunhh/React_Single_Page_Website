@@ -162,7 +162,7 @@ const BuyerInfo = forwardRef(({ formData, setFormData }, ref) => {
                         </StyledFloatingLabel>
                     </Col>
                 </Row>
-                <Row className="mb-4 g-5">
+                <Row className="mb-4">
                     <Col>
                         <StyledFloatingLabel controlId="buyerEmail" label="Email">
                             <StyledInput
@@ -274,7 +274,7 @@ const BuyerInfo = forwardRef(({ formData, setFormData }, ref) => {
                     </Col>
                 </Row>
 
-                <Row className="mb-4 g-5">
+                <Row className="mb-4">
                     <Col>
                         <StyledFloatingLabel controlId="companyName" label="Tên công ty">
                             <StyledInput

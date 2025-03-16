@@ -5,11 +5,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Navbar from "./compoents/Navbar/Navbar";
+import Navbar from "./compoents/Navbar";
 import Home from "./Pages/HomePage/Home";
-import Footer from "./compoents/Footer/Footer";
+import Footer from "./compoents/Footer";
 import ScrollToTop from "./compoents/ScrollToTop";
-import Header from "./compoents/Header/Header";
+import Header from "./compoents/Header";
 import CheckOut from "./Pages/CheckOut/CheckOut";
 
 function App() {
