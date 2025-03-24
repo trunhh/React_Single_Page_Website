@@ -1,43 +1,30 @@
 :root {
-    --primary: #ff5a73;
-    --secondary: #ff9831;
-    --primary-light: #ff6d18;
-    --secondary-light: #ffd553;
-    --neutral: #ffe1cf;
+    --bs-primary-rgb: 255, 90, 115 !important;
+    --bs-secondary-rgb: 255, 109, 24 !important;
+    --bs-border-color: #a6a6a6;
+    /* --primary-dark: #f01d6e;
+    --secondary-dark: #ff6608; */
+    
+
+    --bs-navbar-color: rgba(255, 255, 255, 0.75) !important;
+    --bs-navbar-hover-color: white !important;
+
+    
+    --secondary-transparent: #ffe1cf;
+
+    --yellow-layer: rgba(255, 255, 0, 0.4);
+    --bs-gradient: linear-gradient(to bottom, transparent , var(--yellow-layer)) !important;
 }
 
-.bg-gradient-top {
-    background-image: linear-gradient(var(--primary), var(--secondary));
+.bg-gradient-reverse {
+    background-image: linear-gradient(to top, transparent , var(--yellow-layer)) !important;
 }
 
-.bg-gradient-bottom {
-    background-image: linear-gradient(var(--secondary), var(--primary));
+.bg-gradient-horizontal {
+    background-image: linear-gradient(to right, transparent , var(--yellow-layer)) !important;
 }
 
-.bg-gradient-left {
-    background-image: linear-gradient(to left, var(--primary), var(--secondary));
+.bg-plain-st {
+    background-color: var(--secondary-transparent);
 }
 
-.bg-gradient-right {
-    background-image: linear-gradient(to left, var(--secondary), var(--primary));
-}
-
-.bg-plain-primary {
-    background-color: var(--primary);
-}
-
-.bg-plain-secondary {
-    background-color: var(--secondary);
-}
-
-.bg-plain-primary-light {
-    background-color: var(--primary-light);
-}
-
-.bg-plain-neutral {
-    background-color: var(--neutral);
-}
-
-.txt-primary {
-    color: var(--primary);
-}

@@ -4,9 +4,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow Semi Condensed', sans-serif !important;;
+  font-family: 'Barlow Semi Condensed', sans-serif !important;
+}
+
+html {
+  font-size: 2vmin;
+  font-family: 'Barlow Semi Condensed', sans-serif !important;
 }
 
 code {
-  font-family: 'Barlow Semi Condensed', sans-serif !important;;
+  font-family: 'Barlow Semi Condensed', sans-serif !important;
 }

@@ -1,31 +1,27 @@
-import React from "react";
-import GlobalStyle from "./GlobalStyles"
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./compoents/Navbar";
-import Home from "./Pages/HomePage/Home";
-import Footer from "./compoents/Footer";
-import ScrollToTop from "./compoents/ScrollToTop";
-import Header from "./compoents/Header";
-import CheckOut from "./Pages/CheckOut/CheckOut";
+import Home from "./Pages/Home";
+import ScrollToTop from "./Utillities/ScrollToTop";
+import CheckOut from "./Pages/CheckOut";
+import LoadingOverlay from "./compoents/LoadingOverlay";
+import "./App.css"
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styling/coloring.css"
 function App() {
+
+  
+
   return (
-    <Router>
-      <GlobalStyle />
+    <BrowserRouter>
       <ScrollToTop />
       <Navbar />
-      <Header />
+      <LoadingOverlay />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/check-out" element={<CheckOut/>} />
-
       </Routes>
-      <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

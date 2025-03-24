@@ -1,0 +1,71 @@
+:root {
+  --header-height: 12rem;
+  --footer-height: 12rem;
+  --navbar-height: 4rem;
+  --su: 16rem;
+}
+
+header {
+  height: var(--header-height) !important;
+}
+
+footer {
+  height: var(--footer-height)!important;
+}
+
+nav {
+  min-height: var(--navbar-height) !important;
+}
+
+button {
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.w-0 { width: 0 !important;}
+.w-1 { width: calc(var(--su) * 0.25) !important;}
+.w-2 { width: calc(var(--su) * .5) !important;}
+.w-3 { width: var(--su) !important;}
+.w-4 { width: calc(var(--su) * 1.5) !important;}
+.w-5 { width: calc(var(--su) * 3) !important;}
+
+.h-0 { height: 0 !important}
+.h-1 { height: calc(var(--su) * .25) !important;}
+.h-2 { height: calc(var(--su) * .5) !important;}
+.h-3 { height: var(--su) !important;}
+.h-4 { height: calc(var(--su) * 1.5) !important;}
+.h-5 { height: calc(var(--su) * 3 - var(--navbar-height)) !important;}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+div[role="alert"].show {
+  animation: slideIn 0.3s ease-in-out forwards;
+}
+
+div[role="alert"].hide {
+  animation: slideOut 0.3s ease-in-out forwards;
+}

@@ -1,0 +1,13 @@
+.dot-square {
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, rgb(var(--bs-primary-rgb)), white) .2rem,
+    transparent .2rem
+  );
+  background-size: 1.2rem 1.2rem;
+}
+
+
+.bubble {
+    border-radius: 50% 50% 0% 50%;
+}

@@ -1,17 +1,9 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import '../styling/coloring.css';
-
 const SpecDetail = (product) => {
   return (
-    <Col>
-      <Row>
-        <Col sm={12} md={5} xxl={2} className="d-inline-block">
-          <img src={product.img} class="rounded object-fit-cover w-100 h-100"/>
-        </Col>
+      <div className="d-flex mx-auto w-5 gap-3 px-3 align-items-stretch">
+        <img src={product.img} className="rounded object-fit-cover w-3 align-self-stretch mh-100"/>
         
-        <Col sm={12} md={7} xxl={10}>
+        <div className="flex-shrink-0 flex-growth-1 w-4">
           <div><b>Hệ điều hành: </b>{product.os}</div>
           <div><b>CPU: </b>{product.cpu}</div>
           <div><b>Bộ nhớ: </b>{product.memory}</div>
@@ -27,23 +19,22 @@ const SpecDetail = (product) => {
           <div><b>Nhiệt độ: </b>{product.heat}</div>
           <div><b>Kích thước, trọng lượng: </b>{product.size}</div>
           <div><b>Chứng chỉ: </b>{product.certification}</div>
-        </Col>
-      </Row>
-    </Col>
+        </div>
+      </div>
   );
 };
 
 const Specs = ({products}) => {
   return (
-    <div className="text-light p-4 bg-gradient-top">
-      <h2 className="fw-bold text-uppercase d-flex justify-content-center">
+    <div className="d-flex flex-column text-light bg-primary bg-gradient">
+      <h2 className="d-flex align-items-center mx-auto text-uppercase fw-bold text-center h-2">
         Thông số kỹ thuật
       </h2>
-      <Row className="justify-content-center p-3 gap-5">
+      <div className="d-flex align-items-center p-3 overflow-auto h-100 gap-5" style={{overflowX: "auto"}}>
         {products.map((product, index) => (
           <SpecDetail key={index} {...product} />
         ))}
-      </Row>
+      </div>
     </div>
   );
 }

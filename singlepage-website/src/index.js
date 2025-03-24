@@ -3,15 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AlertProvider } from './compoents/Alert/Alert';
-
+import { AlertProvider } from './compoents/Alert';
+import store from "./redux/store";
+import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AlertProvider>
-      <App />
-    </AlertProvider>
-    
+    <Provider store={store}>
+      <AlertProvider>
+        <App />
+        
+      </AlertProvider>
+    </Provider>
+
   </React.StrictMode>
 );
 
